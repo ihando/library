@@ -1,0 +1,32 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto";
+    overflow: hidden;
+  }
+
+.container {
+    display:flex;
+    height: 100vh;
+    width: 100vw;
+}
+.bookshelf {
+    display:grid;
+    width:80%;
+    height:100%;
+    background-color: aquamarine;
+    grid-template-columns: repeat(auto-fit, 144px);
+    grid-template-rows: repeat(auto-fit, 144px);
+}
+.book {
+    height: 100%;
+    width:100%;
+    background-color: blueviolet;
+    box-sizing: border-box;
+    border: 1px solid black;
+}
+.form {
+    width:20%;
+    height:100%;
+    background-color: bisque;
+}
