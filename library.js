@@ -28,8 +28,19 @@ function displayBooks() {
             <div>Pages: ${book.pages}</div>
             <div>Read: ${book.read ? 'Yes' : 'No'}</div>
             <button class="delete-button" data-id="${book.number}">Delete</button>
+            <button class="toggle-read-button" data-id="${book.number}">Toggle Read Status</button>
         `;
         library.appendChild(bookDiv);
+
+        document.querySelectorAll('.toggle-read-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const bookNumber = parseInt(this.getAttribute('data-id'));
+                const book = myLibrary.find(book => book.number === bookNumber);
+                book.toggleReadStatus();
+                displayBooks(); 
+                
+            });
+        });
     });
 }
 
@@ -55,4 +66,8 @@ document.addEventListener('click', e => {
         }
     }
 });
+
+Book.prototype.toggleReadStatus = function() {
+    this.read = !this.read;
+};
 
